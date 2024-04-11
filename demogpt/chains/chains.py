@@ -3,9 +3,15 @@ import os
 import re
 from time import sleep
 
+from llm_commons.langchain.btp_llm import init_llm, init_embedding_model
+from llm_commons.langchain.proxy import ChatOpenAI
+from langchain.agents import Tool
+from llm_commons.langchain.btp_llm import BTPOpenAIEmbeddings, BTPOpenAI
+
+
 import autopep8
 from langchain.chains import LLMChain
-from langchain.chat_models import ChatOpenAI
+#from langchain.chat_models import ChatOpenAI
 from langchain.prompts.chat import (ChatPromptTemplate,
                                     HumanMessagePromptTemplate,
                                     SystemMessagePromptTemplate)
@@ -32,10 +38,8 @@ class Chains:
         cls.openai_api_base=openai_api_base
         cls.has_gpt4=has_gpt4
         cls.llm = ChatOpenAI(
-            model=model,
-            openai_api_key=openai_api_key,
+            deployment_id="gpt-3.5-turbo",
             temperature=temperature,
-            openai_api_base=openai_api_base
         )
         cls.model = model
     
@@ -43,18 +47,14 @@ class Chains:
     def getModel(cls, change=False, temperature=0, change_model="gpt-4-0613"):
         if change and cls.has_gpt4:
             return ChatOpenAI(
-                model=change_model,
-                openai_api_key=cls.openai_api_key,
+                deployment_id="gpt-3.5-turbo",
                 temperature=temperature,
-                openai_api_base=cls.openai_api_base
         )
         
         if temperature > 0:
             return ChatOpenAI(
                 model=cls.model,
-                openai_api_key=cls.openai_api_key,
                 temperature=temperature,
-                openai_api_base=cls.openai_api_base
         )
         
         return cls.llm

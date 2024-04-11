@@ -5,7 +5,8 @@ import re
 from difflib import SequenceMatcher
 
 from langchain.chains import LLMChain
-from langchain.chat_models import ChatOpenAI
+#from langchain.chat_models import ChatOpenAI
+from llm_commons.langchain.proxy import ChatOpenAI
 from langchain.prompts.chat import (ChatPromptTemplate,
                                     HumanMessagePromptTemplate,
                                     SystemMessagePromptTemplate)
@@ -26,10 +27,10 @@ class TaskChainsSeperate:
         openai_api_base=None,
     ):
         cls.llm = ChatOpenAI(
-            model=model,
-            openai_api_key=openai_api_key,
+            deployment_id="gpt-3.5-turbo",
+#            openai_api_key=openai_api_key,
             temperature=temperature,
-            openai_api_base=openai_api_base
+ #           openai_api_base=openai_api_base
         )
 
     @classmethod
