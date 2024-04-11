@@ -27,7 +27,7 @@ class TaskChainsSeperate:
         openai_api_base=None,
     ):
         cls.llm = ChatOpenAI(
-            deployment_id="gpt-3.5-turbo",
+            deployment_id="gpt-35-turbo",
             
 #            openai_api_key=openai_api_key,
             temperature=temperature,

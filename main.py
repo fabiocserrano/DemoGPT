@@ -1,5 +1,5 @@
 from demogpt import DemoGPT
-agent = DemoGPT(model_name="gpt-3.5-turbo", openai_api_key="111") # if OPENAI_API_KEY is not set in env variables, put it with openai_api_key argument
+agent = DemoGPT(model_name="gpt-35-turbo", openai_api_key="111") # if OPENAI_API_KEY is not set in env variables, put it with openai_api_key argument
 instruction = "Your instruction here"
 title = "Your title here"
 code = ""

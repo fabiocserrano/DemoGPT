@@ -21,7 +21,7 @@ class SelfRefiner:
         max_iter=4,
         stop_kw="<SUCCESS>",
         log_intermediate_steps=True,
-        model="gpt-3.5-turbo",
+        model="gpt-35-turbo",
         openai_api_key=os.getenv("OPENAI_API_KEY", ""),
         temperature=0.0,
         openai_api_base=None,
@@ -39,7 +39,7 @@ class SelfRefiner:
         self.llm = ChatOpenAI(
             #model=model,
             #openai_api_key=openai_api_key,
-            deployment_id="gpt-3.5-turbo",
+            deployment_id="gpt-35-turbo",
             temperature=temperature,
             #openai_api_base=openai_api_base,
         )

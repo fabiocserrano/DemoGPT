@@ -48,14 +48,14 @@ class Chains:
     def getModel(cls, change=False, temperature=0, change_model="gpt-4-0613"):
         if change and cls.has_gpt4:
             return ChatOpenAI(
-                deployment_id="gpt-3.5-turbo",
+                deployment_id="gpt-35-turbo",
                 temperature=temperature,
         )
         
         if temperature > 0:
             return ChatOpenAI(
                 #model=cls.model,
-                deployment_id="gpt-3.5-turbo",
+                deployment_id="gpt-35-turbo",
                 temperature=temperature,
         )
         
@@ -267,7 +267,7 @@ class Chains:
             system_template=prompts.combine_v2.system_template,
             human_template=prompts.combine_v2.human_template,
             change=True,
-            change_model="gpt-3.5-turbo",
+            change_model="gpt-35-turbo",
             code_snippets=code_snippets,
             function_names=function_names,
         )
