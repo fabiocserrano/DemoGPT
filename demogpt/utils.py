@@ -562,8 +562,8 @@ from langchain.prompts.chat import (ChatPromptTemplate, HumanMessagePromptTempla
 
 def {signature}:
     chat = ChatOpenAI(
-        model="gpt-3.5-turbo-16k",
-        openai_api_key=openai_api_key,
+        deployment_id="gpt-35-turbo",
+        
         temperature={temperature}
     )
     system_template = \"\"\"{templates['system_template']}\"\"\"
@@ -632,7 +632,7 @@ else:
 
     imports = f"""\n
 from langchain.chains import LLMChain
-from llm_commons.langchain.proxyimport ChatOpenAI
+from llm_commons.langchain.proxy import ChatOpenAI
 from langchain.prompts.chat import (ChatPromptTemplate, HumanMessagePromptTemplate, SystemMessagePromptTemplate)
     """
     
@@ -640,8 +640,7 @@ from langchain.prompts.chat import (ChatPromptTemplate, HumanMessagePromptTempla
 
 def {signature}:
     chat = ChatOpenAI(
-        model="gpt-3.5-turbo-16k",
-        openai_api_key=openai_api_key,
+        deployment_id="gpt-35-turbo",
         temperature={temperature}
     )
     system_template = \"\"\"{templates['system_template']}\"\"\"
