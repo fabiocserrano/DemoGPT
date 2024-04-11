@@ -69,8 +69,8 @@ We appreciate your understanding and look forward to seeing what you create! ðŸ˜
         return "gpt-4-0613" in self.available_models
                 
     def setModel(self, model_name):
-        if model_name not in self.available_models:
-            raise AssertionError(self.gpt4_message)
+       # if model_name not in self.available_models:
+       #     raise AssertionError(self.gpt4_message)
         self.model_name = model_name
         Chains.setLlm(
             self.model_name, self.openai_api_key, openai_api_base=self.openai_api_base, has_gpt4=self.hasGPT4
