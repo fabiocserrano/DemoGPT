@@ -37,10 +37,11 @@ class SelfRefiner:
             "refine": PROMPTS[key].REFINEMENT_PROMPT,
         }
         self.llm = ChatOpenAI(
-            model=model,
-            openai_api_key=openai_api_key,
+            #model=model,
+            #openai_api_key=openai_api_key,
+            deployment_id="gpt-3.5-turbo",
             temperature=temperature,
-            openai_api_base=openai_api_base,
+            #openai_api_base=openai_api_base,
         )
 
         self.conversation_history = self.getPromptTemplate("refine")

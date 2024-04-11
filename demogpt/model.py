@@ -46,13 +46,13 @@ Upgrade your access through OpenAI's platform.
 Opt for another model that you have access to and give it another whirl.
 We appreciate your understanding and look forward to seeing what you create! 😊
             """
-        try:
-            self.available_models = [model["id"] for model in openai.Model.list(api_key=openai_api_key)["data"] if "gpt" in model["id"]]
-        except:
-            self.available_models = []
-            raise AssertionError("Invalid OpenAI API Key")
-        else:
-            assert (not self.model_name) or self.model_name in self.available_models , self.gpt4_message
+#        try:
+#            self.available_models = [model["id"] for model in openai.Model.list(api_key=openai_api_key)["data"] if "gpt" in model["id"]]
+#        except:
+        self.available_models = []
+ #           raise AssertionError("Invalid OpenAI API Key")
+ #       else:
+  #          assert (not self.model_name) or self.model_name in self.available_models , self.gpt4_message
                 
         Chains.setLlm(
             self.model_name, self.openai_api_key, openai_api_base=self.openai_api_base, has_gpt4=self.hasGPT4

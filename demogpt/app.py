@@ -76,6 +76,7 @@ models = (
     "gpt-4",
     "gpt-4-0314",
     "gpt-4-0613",
+    "gtp-35-turbo",  # for backward compatibility
 )
 
 model_name = st.sidebar.selectbox("Model", models)

@@ -38,7 +38,8 @@ class Chains:
         cls.openai_api_base=openai_api_base
         cls.has_gpt4=has_gpt4
         cls.llm = ChatOpenAI(
-            deployment_id="gpt-3.5-turbo",
+            deployment_id="gpt-35-turbo",
+            #model= "gpt-35-turbo",
             temperature=temperature,
         )
         cls.model = model
@@ -53,7 +54,8 @@ class Chains:
         
         if temperature > 0:
             return ChatOpenAI(
-                model=cls.model,
+                #model=cls.model,
+                deployment_id="gpt-3.5-turbo",
                 temperature=temperature,
         )
         
