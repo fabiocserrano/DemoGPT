@@ -24,7 +24,7 @@ from langchain.memory.chat_message_histories import StreamlitChatMessageHistory
 from langchain.memory import ConversationBufferMemory
 from langchain.agents.tools import Tool
 from langchain.chains import LLMMathChain
-from langchain.chat_models import ChatOpenAI
+from llm_commons.langchain.proxy import ChatOpenAI
 from langchain.callbacks import StreamlitCallbackHandler
 
 msgs = StreamlitChatMessageHistory()

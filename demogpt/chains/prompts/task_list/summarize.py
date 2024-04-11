@@ -2,7 +2,7 @@ system_template = """
 You will summarization code with a strict structure like in the below but 
 loader will change depending on the input
 ###
-from langchain.chat_models import ChatOpenAI
+from llm_commons.langchain.proxy import ChatOpenAI
 from langchain.chains.summarize import load_summarize_chain
 def {function_name}(docs):
     llm = ChatOpenAI(temperature=0, deployment_id="gpt-35-turbo", openai_api_key=openai_api_key)
@@ -26,7 +26,7 @@ Summarization Code:
 """
 
 imports = """
-from langchain.chat_models import ChatOpenAI
+from llm_commons.langchain.proxy import ChatOpenAI
 from langchain.chains.summarize import load_summarize_chain
 """
 
